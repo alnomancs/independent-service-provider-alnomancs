@@ -8,6 +8,6 @@
  * 7. initilize firebase configuration
  * 8. firebase deploy
  * 9. enable email password authentication
- * 10. 
+ * 10. github initilize
  * 
  */
