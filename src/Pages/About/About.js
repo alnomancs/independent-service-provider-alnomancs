@@ -20,7 +20,8 @@ const About = () => {
             skill over React js and database .
             <br />I want make myself as MERN Stack developer. There is lot of
             thing i have to learn. This is so hard but i make my self confident
-            and i'm hard worker
+            and i'm hard worker. <br />
+            Happt Coding
           </Card.Text>
         </Card.Body>
       </Card>
