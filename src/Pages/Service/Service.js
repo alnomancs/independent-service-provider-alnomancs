@@ -1,13 +1,11 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Button, Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
   const navigate = useNavigate();
 
   const { id, name, price, description, img } = service;
-
-  let params = useParams();
 
   const handleCheckout = (event) => {
     navigate("/checkout:" + id);
