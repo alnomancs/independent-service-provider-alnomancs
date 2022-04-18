@@ -5,8 +5,10 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
 import Loading from "../../Loading/Loading";
+import SocialLink from "../SocialLink/SocialLink";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -14,8 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
-  let errorElement;
+  const from = location.state?.from?.pathname || "/";
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -30,11 +31,29 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
-  if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
 
-  const handleSubmit = (event) => {};
+    signInWithEmailAndPassword(email, password);
+    console.log(user);
+  };
+
+  const navigateRegister = (event) => {
+    navigate("/signup");
+  };
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Email sent. please check your email");
+    } else {
+      toast("please enter your email address");
+    }
+  };
 
   return (
     <div className="w-75 mx-auto mt-5 shadow-lg border rounded-3 p-5">
@@ -60,13 +79,13 @@ const Login = () => {
           Login
         </Button>
       </Form>
-      {errorElement}
+      <p className="text-danger">{error?.message}</p>
       <p>
         New to Muzmatch?{" "}
         <Link
-          to="/register"
+          to="/signup"
           className="text-primary pe-auto text-decoration-none"
-          // onClick={navigateRegister}
+          onClick={navigateRegister}
         >
           Please Register
         </Link>{" "}
@@ -75,13 +94,13 @@ const Login = () => {
         Forget Password?{" "}
         <button
           className="btn btn-link text-primary pe-auto text-decoration-none"
-          // onClick={resetPassword}
+          onClick={resetPassword}
         >
           Reset Password
         </button>{" "}
       </p>
-      {/* <SocialLogin></SocialLogin>
-      <ToastContainer /> */}
+      <SocialLink></SocialLink>
+      <ToastContainer />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [checked, setChecked] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -45,12 +45,11 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(name, email, password);
-
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    navigate("/");
+    navigate("/login");
   };
+
   return (
     <div className="w-75 mx-auto mt-5 shadow-lg border rounded-3 p-5">
       <Form onSubmit={handleSubmit}>
@@ -90,6 +89,10 @@ const SignUp = () => {
             label="I agree to the terms and conditions"
           />
         </Form.Group>
+        <p>
+          {error?.message}
+          {updateError?.message}
+        </p>
 
         <Button disabled={!checked} variant="primary" type="submit">
           Register
