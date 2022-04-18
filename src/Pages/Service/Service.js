@@ -4,17 +4,21 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const Service = ({ service }) => {
   const navigate = useNavigate();
-  const params = useParams();
+
   const { id, name, price, description, img } = service;
 
+  let params = useParams();
+
   const handleCheckout = (event) => {
-    navigate("/checkout");
+    navigate("/checkout:" + id);
   };
   return (
     <>
-      <Col className="text-center border-2 border-light" md={4}>
-        <Card border="primary" style={{ width: "100%", height: "100%" }}>
-          {console.log(img)}
+      <Col className="text-center " md={4}>
+        <Card
+          className="shadow border-5 border-light"
+          style={{ width: "100%", height: "100%" }}
+        >
           <Card.Img variant="top" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
