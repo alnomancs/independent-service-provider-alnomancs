@@ -9,7 +9,6 @@ import { signOut } from "firebase/auth";
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
   return (
     <header>
       <Navbar
@@ -31,6 +30,7 @@ const Header = () => {
               <Link to="/home">Home</Link>
               <Link to="/checkout">Checkout</Link>
               <Link to="/about">About</Link>
+              <Link to="/blog">Blog</Link>
             </Nav>
             <Nav>
               <Link to="/signup">Sign Up</Link>

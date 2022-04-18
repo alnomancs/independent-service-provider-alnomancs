@@ -5,10 +5,13 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+
+import { ToastContainer, toast } from "react-toastify";
+
 import auth from "../../../firebase.init";
 import Loading from "../../Loading/Loading";
 import SocialLink from "../SocialLink/SocialLink";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -97,7 +100,7 @@ const Login = () => {
           onClick={resetPassword}
         >
           Reset Password
-        </button>{" "}
+        </button>
       </p>
       <SocialLink></SocialLink>
       <ToastContainer />
