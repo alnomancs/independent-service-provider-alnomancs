@@ -40,7 +40,7 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     signInWithEmailAndPassword(email, password);
-    console.log(user);
+    
   };
 
   const navigateRegister = (event) => {

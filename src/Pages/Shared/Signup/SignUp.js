@@ -40,6 +40,7 @@ const SignUp = () => {
 
   if (user) {
     console.log("user", user);
+    navigate("/login");
   }
 
   const handleSubmit = async (event) => {
@@ -47,7 +48,6 @@ const SignUp = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    navigate("/login");
   };
 
   return (

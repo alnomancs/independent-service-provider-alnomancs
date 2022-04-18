@@ -30,10 +30,7 @@ const Checkout = () => {
           <Form.Control type="text" placeholder="Enter your IBAN" />
         </Form.Group>
 
-        
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Button variant="primary">Submit</Button>
       </Form>
     </div>
   );

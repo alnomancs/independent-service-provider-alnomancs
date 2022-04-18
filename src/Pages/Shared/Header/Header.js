@@ -33,7 +33,6 @@ const Header = () => {
               <Link to="/blog">Blog</Link>
             </Nav>
             <Nav>
-              <Link to="/signup">Sign Up</Link>
               {/* <Link to="/login">Login</Link> */}
 
               {user?.uid ? (
@@ -41,7 +40,10 @@ const Header = () => {
                   Sign out
                 </Link>
               ) : (
-                <Link to="/login">Login</Link>
+                <>
+                  <Link to="/signup">Sign Up</Link>
+                  <Link to="/login">Login</Link>
+                </>
               )}
               <Link to="">{user?.displayName}</Link>
             </Nav>
