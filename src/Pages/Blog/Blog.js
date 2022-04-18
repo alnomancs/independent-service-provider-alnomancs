@@ -61,14 +61,17 @@ const Blog = () => {
             implement authentication?
           </Accordion.Header>
           <Accordion.Body>
-            Firebase Authentication provides backend services, easy-to-use SDKs,
-            and ready-made UI libraries to authenticate users to your app. It
-            supports authentication using passwords, phone numbers, popular
-            federated identity providers like Google, Facebook and Twitter, and
-            more. <br />
-            Usually, authentication by a server entails the use of a user name
-            and password. Other ways to authenticate can be through smart card,
-            eye scans, voice recognition, and fingerprints.
+            <p>1. STYTCH</p>
+            <p>2. Ory</p>
+            <p>3. Supabase</p>
+            <p>4. Okta</p>
+            <p>5. PingIdentity</p>
+            <p>6. Keycloak</p>
+            <p>7. Frontegg</p>
+            <p>8. Authress</p>
+            <p>9. Auth0</p>
+            <p>10. Amazon Cognito</p>
+            <p>11. OneLogin</p>
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
