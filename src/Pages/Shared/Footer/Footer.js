@@ -1,10 +1,11 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer text-center py-3">
-      © {new Date().getFullYear()} Copyright Muzmatch
-    </div>
+    <footer className=" text-center py-3 bg-dark text-white">
+      Copyright © {new Date().getFullYear()} Muzmatch.com
+    </footer>
   );
 };
 
