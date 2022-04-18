@@ -16,3 +16,13 @@ In this website i add information about product review with customers and rechar
 - Sign up
 - Login
 - Google sign in
+
+## Feature and library
+
+- React bootstrap
+- React Router
+- React firebase hook
+- Firebase authentication system
+- react toastify
+- Login system
+- Google sign in
